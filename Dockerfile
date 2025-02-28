@@ -12,6 +12,10 @@ ARG KUBECTL_VERSION=1.29.3
 ADD https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl /usr/bin/
 RUN chmod +x /usr/bin/kubectl
 
+COPY ./build_resources/setup.sh /root/setup.sh
+RUN chmod +x /root/setup.sh
+RUN /root/setup.sh
+
 COPY ./build_resources/entrypoint.sh /root/entrypoint.sh
 COPY ./build_resources/provider_entrypoint.sh /root/provider_entrypoint.sh
 RUN chmod +x /root/provider_entrypoint.sh
