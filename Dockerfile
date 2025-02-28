@@ -17,8 +17,11 @@ RUN chmod +x /root/setup.sh
 RUN /root/setup.sh
 
 COPY ./build_resources/entrypoint.sh /root/entrypoint.sh
+RUN chmod +x /root/entrypoint.sh
+
 COPY ./build_resources/provider_entrypoint.sh /root/provider_entrypoint.sh
 RUN chmod +x /root/provider_entrypoint.sh
+
 COPY ./build_resources/k8s_glue_example.py /root/k8s_glue_example.py
 COPY ./build_resources/clearml.conf /root/clearml.conf
 RUN touch /root/.bashrc
