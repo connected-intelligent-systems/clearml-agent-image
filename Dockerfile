@@ -40,6 +40,7 @@ COPY build_resources/provider_entrypoint.sh .
 RUN chmod +x entrypoint.sh
 RUN chmod +x setup.sh
 RUN chmod +x provider_entrypoint.sh
+RUN touch /root/.bashrc
 
 FROM target
 
